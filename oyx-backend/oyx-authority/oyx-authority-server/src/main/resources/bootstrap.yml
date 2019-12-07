@@ -30,7 +30,7 @@ spring:
         namespace: ${oyx.nacos.namespace}
         metadata: # 元数据，用于权限服务实时获取各个服务的所有接口
           management.context-path: ${server.servlet.context-path:}${spring.mvc.servlet.path:}${management.endpoints.web.base-path:}
-          swagger: http://${oyx.local-ip}:${server.port:}/swagger-resources
+#          swagger: http://${oyx.local-ip}:${server.port:}/swagger-resources
           service.name: 权限服务
 
 

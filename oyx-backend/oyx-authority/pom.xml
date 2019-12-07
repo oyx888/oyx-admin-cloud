@@ -16,7 +16,16 @@
     <packaging>pom</packaging>
     <modules>
         <module>oyx-authority-server</module>
+        <module>oyx-authority-controller</module>
     </modules>
 
-
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.github.oyx</groupId>
+                <artifactId>oyx-authority-controller</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

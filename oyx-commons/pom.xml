@@ -17,7 +17,18 @@
 
     <modules>
         <module>oyx-config</module>
+        <module>oyx-common</module>
+        <module>oyx-core</module>
+        <module>oyx-swagger2-starter</module>
     </modules>
 
-
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.github.oyx</groupId>
+                <artifactId>oyx-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

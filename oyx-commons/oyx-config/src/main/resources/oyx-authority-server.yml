@@ -1,2 +1,12 @@
+oyx:
+  swagger:
+    enabled: true
+    docket:
+      auth:
+        title: 权限模块
+        base-package: com.github.oyx.authority.controller.auth
+    basic:
+      enabled: true
+
 server:
   port: 8764
