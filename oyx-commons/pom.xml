@@ -20,6 +20,7 @@
         <module>oyx-common</module>
         <module>oyx-core</module>
         <module>oyx-swagger2-starter</module>
+        <module>oyx-cache-starter</module>
     </modules>
 
     <dependencyManagement>
@@ -27,6 +28,11 @@
             <dependency>
                 <groupId>com.github.oyx</groupId>
                 <artifactId>oyx-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.oyx</groupId>
+                <artifactId>oyx-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
