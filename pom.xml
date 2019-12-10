@@ -13,6 +13,7 @@
         <module>oyx-backend</module>
         <module>oyx-commons</module>
         <module>oyx-dependencies</module>
+        <module>oyx-generator</module>
     </modules>
     <!--    开发者信息-->
     <developers>
