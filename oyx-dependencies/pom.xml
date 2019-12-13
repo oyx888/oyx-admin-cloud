@@ -110,6 +110,7 @@
         <commons.collections4.version>4.1</commons.collections4.version>
 
         <hutool.version>4.5.6</hutool.version>
+        <dozer.version>6.4.0</dozer.version>
     </properties>
 
     <dependencyManagement>
@@ -199,6 +200,13 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
+            </dependency>
+
+            <!-- 对象转换 -->
+            <dependency>
+                <groupId>com.github.dozermapper</groupId>
+                <artifactId>dozer-spring-boot-starter</artifactId>
+                <version>${dozer.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
