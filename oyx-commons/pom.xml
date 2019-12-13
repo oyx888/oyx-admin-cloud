@@ -21,6 +21,7 @@
         <module>oyx-core</module>
         <module>oyx-swagger2-starter</module>
         <module>oyx-cache-starter</module>
+        <module>oyx-databases</module>
     </modules>
 
     <dependencyManagement>
