@@ -25,6 +25,7 @@
         <module>oyx-dozer-starter</module>
         <module>oyx-jwt-starter</module>
         <module>oyx-log-starter</module>
+        <module>oyx-validator-starter</module>
     </modules>
 
     <dependencyManagement>
