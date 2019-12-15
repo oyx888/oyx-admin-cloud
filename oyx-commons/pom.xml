@@ -26,6 +26,7 @@
         <module>oyx-jwt-starter</module>
         <module>oyx-log-starter</module>
         <module>oyx-validator-starter</module>
+        <module>oyx-xss-starter</module>
     </modules>
 
     <dependencyManagement>
