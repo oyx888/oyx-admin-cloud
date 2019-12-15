@@ -23,6 +23,7 @@
         <module>oyx-cache-starter</module>
         <module>oyx-databases</module>
         <module>oyx-dozer-starter</module>
+        <module>oyx-jwt-starter</module>
     </modules>
 
     <dependencyManagement>
