@@ -24,6 +24,7 @@
         <module>oyx-databases</module>
         <module>oyx-dozer-starter</module>
         <module>oyx-jwt-starter</module>
+        <module>oyx-log-starter</module>
     </modules>
 
     <dependencyManagement>

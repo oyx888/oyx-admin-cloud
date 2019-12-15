@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.github.oyx.log.LogAutoConfiguration
+org.springframework.context.ApplicationContextInitializer=\
+  com.github.oyx.log.init.ApplicationLoggerInitializer
