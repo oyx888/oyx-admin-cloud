@@ -23,12 +23,13 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 public class DynamicTableNameParser implements ISqlParser {
+    private static final String ADMIN = "admin";
 
     private Map<String, ITableNameHandler> tableNameHandlerMap;
 
     private ITableNameHandler defaultTableNameHandler = (metaObject, sql, tableName) -> {
         String tenantCode = BaseContextHandler.getTenant();
-        if (StrUtil.isEmpty(tenantCode)) {
+        if (StrUtil.isEmpty(tenantCode) || ADMIN.equals(tenantCode)) {
             return tableName;
         }
         return BaseContextHandler.getDatabase(tenantCode) + StrUtil.DOT + tableName;

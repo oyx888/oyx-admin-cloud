@@ -17,6 +17,8 @@
     <modules>
         <module>oyx-authority-server</module>
         <module>oyx-authority-controller</module>
+        <module>oyx-authority-entity</module>
+        <module>oyx-authority-biz</module>
     </modules>
 
     <dependencyManagement>
@@ -24,6 +26,11 @@
             <dependency>
                 <groupId>com.github.oyx</groupId>
                 <artifactId>oyx-authority-controller</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.oyx</groupId>
+                <artifactId>oyx-authority-biz</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

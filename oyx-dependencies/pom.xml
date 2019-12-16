@@ -118,6 +118,7 @@
         <!--XSS-->
         <antisamy.version>1.5.7</antisamy.version>
         <commons-lang.version>2.6</commons-lang.version>
+        <easy-captcha.version>1.6.2</easy-captcha.version>
     </properties>
 
     <dependencyManagement>
@@ -250,6 +251,12 @@
                 <groupId>commons-lang</groupId>
                 <artifactId>commons-lang</artifactId>
                 <version>${commons-lang.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.whvcse</groupId>
+                <artifactId>easy-captcha</artifactId>
+                <version>${easy-captcha.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -1,4 +1,6 @@
 oyx:
+  mysql:
+    biz-database: oyx_base
   swagger:
     enabled: true
     docket:
@@ -7,6 +9,13 @@ oyx:
         base-package: com.github.oyx.authority.controller.auth
     basic:
       enabled: true
+
+authentication:
+  user:
+    header-name: token
+    expire: 43200               # 外部token有效期为12小时
+    pri-key: client/pri.key    # 加密
+    pub-key: client/pub.key    # 解密
 
 server:
   port: 8764

@@ -10,19 +10,30 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>oyx-authority-controller</artifactId>
-
+    <artifactId>oyx-authority-entity</artifactId>
     <name>${project.artifactId}</name>
-    <description>权限服务接口模块</description>
+    <description>权限服务实体模块</description>
 
     <dependencies>
         <dependency>
             <groupId>com.github.oyx</groupId>
-            <artifactId>oyx-authority-biz</artifactId>
+            <artifactId>oyx-common</artifactId>
         </dependency>
         <dependency>
             <groupId>com.github.oyx</groupId>
-            <artifactId>oyx-user-starter</artifactId>
+            <artifactId>oyx-log-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.oyx</groupId>
+            <artifactId>oyx-jwt-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.oyx</groupId>
+            <artifactId>oyx-databases</artifactId>
         </dependency>
     </dependencies>
 </project>

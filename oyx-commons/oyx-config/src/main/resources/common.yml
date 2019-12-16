@@ -1,0 +1,30 @@
+# 在这里配置 所有的服务 和 所有环境 都相同的配置
+# 如果有个别服务，或者个别环境需要个性化配置， 只需要将配置，单独复制到指定的服务-${profiles.active}.yml即可
+
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+  servlet:
+    multipart:
+      max-file-size: 512MB      # Max file size，默认1M
+      max-request-size: 512MB   # Max request size，默认10M
+
+dozer:
+  mappingFiles:
+    - classpath:dozer/global.dozer.xml
+    - classpath:dozer/biz.dozer.xml
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
+      enabled: true
+id-generator:
+  machine-code: 1  # id生成器机器掩码

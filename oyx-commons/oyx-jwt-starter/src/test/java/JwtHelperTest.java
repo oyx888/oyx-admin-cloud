@@ -13,11 +13,11 @@ public class JwtHelperTest {
         int expire = 7200;
 
         //生成Token  注意： 确保该模块 oyx-jwt-starter/src/main/resources 目录下已经有了私钥
-        Token token = JwtHelper.generateUserToken(jwtInfo, "pri.key", expire);
+        Token token = JwtHelper.generateUserToken(jwtInfo, "client/pri.key", expire);
         System.out.println(token);
 
         //解析Token  注意： 确保该模块 oyx-jwt-starter/src/main/resources 目录下已经有了公钥
-        JwtUserInfo jwtFromToken = JwtHelper.getJwtFromToken(token.getToken(), "pub.key");
+        JwtUserInfo jwtFromToken = JwtHelper.getJwtFromToken(token.getToken(), "client/pub.key");
         System.out.println(jwtFromToken);
     }
 }

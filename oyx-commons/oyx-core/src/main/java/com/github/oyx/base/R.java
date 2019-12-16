@@ -172,6 +172,7 @@ public class R<T> {
      *
      * @return 是否成功
      */
+    @ApiModelProperty(value = "是否成功")
     public Boolean getIsSuccess() {
         return this.code == SUCCESS_CODE || this.code == 200;
     }
@@ -181,6 +182,7 @@ public class R<T> {
      *
      * @return
      */
+    @ApiModelProperty(value = "是否异常")
     public Boolean getIsError() {
         return !getIsSuccess();
     }
