@@ -16,6 +16,8 @@ import com.github.oyx.authority.service.auth.UserService;
 import com.github.oyx.authority.service.defaults.GlobalUserService;
 import com.github.oyx.base.R;
 import com.github.oyx.dozer.DozerUtils;
+import com.github.oyx.exception.BizException;
+import com.github.oyx.exception.code.ExceptionCode;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -44,7 +46,10 @@ public class AuthManager {
     public R<LoginDTO> adminLogin(String account, String password){
         GlobalUser user = globalUserService.getOne(Wrappers.<GlobalUser>lambdaQuery()
         .eq(GlobalUser::getAccount, account).eq(GlobalUser::getTenantCode, SUPER_TENANT));
-
+        //密码错误
+        if(user == null){
+            throw new BizException(ExceptionCode.JWT_USER_INVALID.getCode(), ExceptionCode.JWT_USER_INVALID.getMsg());
+        }
         String passwordMd5 = DigestUtils.md5Hex(password);
         if(!user.getPassword().equalsIgnoreCase(passwordMd5)){
             userService.updatePasswordErrorNumById(user.getId());

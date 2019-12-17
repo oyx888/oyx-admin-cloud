@@ -1,6 +1,12 @@
 package com.github.oyx.authority.controller.auth;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -49,5 +55,11 @@ public class LoginController extends BaseController {
             return authManager.adminLogin(account, password);
         }
         return success(null);
+    }
+
+    @ApiOperation(value = "图片验证码", notes = "图片验证码")
+    @GetMapping("/captcha")
+    public void captcha(@RequestParam(value = "key") String key, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        validateCodeService.create(key, response);
     }
 }
