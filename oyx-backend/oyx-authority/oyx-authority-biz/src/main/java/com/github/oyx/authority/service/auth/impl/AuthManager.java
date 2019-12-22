@@ -11,7 +11,7 @@ import com.github.oyx.auth.utils.Token;
 import com.github.oyx.authority.dto.auth.LoginDTO;
 import com.github.oyx.authority.dto.auth.UserDTO;
 import com.github.oyx.authority.enumeration.auth.Sex;
-import com.github.oyx.authority.enumeration.defaults.GlobalUser;
+import com.github.oyx.authority.entity.defaults.GlobalUser;
 import com.github.oyx.authority.service.auth.UserService;
 import com.github.oyx.authority.service.defaults.GlobalUserService;
 import com.github.oyx.base.R;

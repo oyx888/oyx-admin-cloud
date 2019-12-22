@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.oyx.authority.dao.auth.UserMapper;
 import com.github.oyx.authority.entity.auth.User;
 import com.github.oyx.authority.service.auth.UserService;
+import com.github.oyx.database.mybatis.conditions.Wraps;
 
 /**
  * @author OYX
@@ -24,5 +25,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public void updatePasswordErrorNumById(Long id) {
         baseMapper.incrPasswordErrorNumById(id);
+    }
+
+    @Override
+    public boolean check(String account) {
+        return super.count(Wraps.<User>lbQ().eq(User::getAccount, account)) > 0;
     }
 }

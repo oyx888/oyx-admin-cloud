@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import com.baomidou.mybatisplus.annotation.SqlParser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.github.oyx.authority.enumeration.defaults.GlobalUser;
+import com.github.oyx.authority.entity.defaults.GlobalUser;
 
 /**
  * Mapper 接口

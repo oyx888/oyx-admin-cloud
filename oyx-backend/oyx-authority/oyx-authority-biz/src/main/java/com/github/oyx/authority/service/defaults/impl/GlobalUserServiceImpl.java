@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.oyx.authority.dao.defaults.GlobalUserMapper;
-import com.github.oyx.authority.enumeration.defaults.GlobalUser;
+import com.github.oyx.authority.entity.defaults.GlobalUser;
 import com.github.oyx.authority.service.defaults.GlobalUserService;
 
 /**

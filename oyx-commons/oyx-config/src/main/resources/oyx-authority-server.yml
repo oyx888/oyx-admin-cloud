@@ -7,6 +7,9 @@ oyx:
       auth:
         title: 权限模块
         base-package: com.github.oyx.authority.controller.auth
+      tenant:
+        title: 租户模块
+        base-package: com.github.oyx.authority.controller.defaults
     basic:
       enabled: true
 

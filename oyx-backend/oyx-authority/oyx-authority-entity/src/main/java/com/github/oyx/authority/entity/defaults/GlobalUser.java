@@ -1,4 +1,4 @@
-package com.github.oyx.authority.enumeration.defaults;
+package com.github.oyx.authority.entity.defaults;
 
 import java.time.LocalDateTime;
 

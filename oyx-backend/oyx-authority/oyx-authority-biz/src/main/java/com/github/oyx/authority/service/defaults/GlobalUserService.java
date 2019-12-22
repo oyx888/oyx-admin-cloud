@@ -1,7 +1,7 @@
 package com.github.oyx.authority.service.defaults;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.github.oyx.authority.enumeration.defaults.GlobalUser;
+import com.github.oyx.authority.entity.defaults.GlobalUser;
 
 /**
  * @author OYX

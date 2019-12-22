@@ -4,6 +4,8 @@ package com.github.oyx.authority.controller.defaults;
 import java.util.List;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.github.oyx.authority.dto.defaults.TenantPageDTO;
+import com.github.oyx.authority.dto.defaults.TenantSaveInitDto;
 import com.github.oyx.base.R;
 import com.github.oyx.dozer.DozerUtils;
 import com.github.oyx.log.annotation.SysLog;
@@ -31,6 +33,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.github.oyx.base.BaseController;
+
+import static com.github.oyx.authority.enumeration.defaults.TenantStatusEnum.NORMAL;
 
 /**
  * <p>
@@ -66,12 +70,22 @@ public class TenantController extends BaseController {
     })
     @GetMapping("/page")
     @SysLog("分页查询企业")
-    public R<IPage<Tenant>> page(Tenant data) {
+    public R<IPage<Tenant>> page(TenantPageDTO data) {
         IPage<Tenant> page = getPage();
         // 构建值不为null的查询条件
-        LbqWrapper<Tenant> query = Wraps.lbQ(data);
+        Tenant pageEntity = dozer.map(data, Tenant.class);
+        LbqWrapper<Tenant> query =Wraps.lbQ(pageEntity)
+                .leFooter(Tenant::getCreateTime, data.getEndCreateTime())
+                .geHeader(Tenant::getCreateTime, data.getStartCreateTime())
+                .orderByDesc(Tenant::getCreateTime);
         tenantService.page(page, query);
         return success(page);
+    }
+
+    @ApiOperation(value = "查询所有企业", notes = "查询所有企业")
+    @GetMapping
+    public R<List<Tenant>> list(){
+        return success(tenantService.list(Wraps.<Tenant>lbQ().eq(Tenant::getStatus, NORMAL)));
     }
 
     /**
@@ -87,19 +101,11 @@ public class TenantController extends BaseController {
         return success(tenantService.getById(id));
     }
 
-    /**
-     * 新增企业
-     *
-     * @param data 新增对象
-     * @return 新增结果
-     */
-    @ApiOperation(value = "新增企业", notes = "新增企业不为空的字段")
-    @PostMapping
-    @SysLog("新增企业")
-    public R<Tenant> save(@RequestBody @Validated TenantSaveDTO data) {
-        Tenant tenant = dozer.map(data, Tenant.class);
-        tenantService.save(tenant);
-        return success(tenant);
+
+    @ApiOperation(value = "检测租户是否存在", notes = "检测租户是否存在")
+    @GetMapping("/check/{code}")
+    public R<Boolean> check(@PathVariable("code") String code) {
+        return success(tenantService.check(code));
     }
 
     /**
@@ -131,4 +137,10 @@ public class TenantController extends BaseController {
         return success(true);
     }
 
+    @ApiOperation(value = "新增企业", notes = "新增企业不为空的字段")
+    @PostMapping
+    public R<Tenant> save(@RequestBody @Validated TenantSaveDTO data) {
+        Tenant tenant = tenantService.save(data);
+        return success(tenant);
+    }
 }

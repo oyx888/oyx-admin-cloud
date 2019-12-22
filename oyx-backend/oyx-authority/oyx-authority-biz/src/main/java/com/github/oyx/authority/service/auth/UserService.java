@@ -24,4 +24,12 @@ public interface UserService extends IService<User> {
      * @param id
      */
     void updatePasswordErrorNumById(Long id);
+
+    /**
+     * 检测账号是否存在
+     *
+     * @param account
+     * @return
+     */
+    boolean check(String account);
 }

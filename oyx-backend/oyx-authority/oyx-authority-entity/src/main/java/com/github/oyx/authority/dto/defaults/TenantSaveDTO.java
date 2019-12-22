@@ -57,23 +57,6 @@ public class TenantSaveDTO implements Serializable {
     @Length(max = 255, message = "企业名称长度不能超过255")
     private String name;
     /**
-     * 类型
-     * #{CREATE:创建;REGISTER:注册}
-     */
-    @ApiModelProperty(value = "类型")
-    private TenantTypeEnum type;
-    /**
-     * 状态
-     * #{NORMAL:正常;FORBIDDEN:禁用;WAITING:待审核;REFUSE:拒绝}
-     */
-    @ApiModelProperty(value = "状态")
-    private TenantStatusEnum status;
-    /**
-     * 是否内置
-     */
-    @ApiModelProperty(value = "是否内置")
-    private Boolean readonly;
-    /**
      * 责任人
      */
     @ApiModelProperty(value = "责任人")

@@ -6,6 +6,9 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.TimeZone;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 import com.fasterxml.jackson.core.JsonParser;
@@ -24,6 +27,9 @@ import static com.github.oyx.utils.DateUtils.DEFAULT_DATE_TIME_FORMAT;
  */
 public abstract class BaseConfig {
 
+    @Bean
+    @Primary
+    @ConditionalOnMissingBean
     public ObjectMapper jacksonObjectMapper(Jackson2ObjectMapperBuilder builder){
         builder.simpleDateFormat(DEFAULT_DATE_TIME_FORMAT);
         ObjectMapper objectMapper = builder.createXmlMapper(false)
@@ -53,6 +59,6 @@ public abstract class BaseConfig {
                 .addSerializer(BigInteger.class, ToStringSerializer.instance)
                 .addSerializer(BigDecimal.class, ToStringSerializer.instance)
                 .addDeserializer(Enum.class, EnumDeserializer.INSTANCE);
-        return null;
+        return objectMapper.registerModule(simpleModule);
     }
 }
