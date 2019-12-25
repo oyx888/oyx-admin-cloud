@@ -38,7 +38,7 @@ spring:
     auto: true
 
 logging:
-  path: /data/projects/logs
+  path: /Users/jummy/IdeaProjects/oyx-admin-cloud/logs
 
 # 用于/actuator/info
 info:
